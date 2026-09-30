@@ -1,13 +1,4 @@
--- Bora? — schema inicial no Supabase: perfis (ligados ao auth.users) e fotos
--- postadas no feed (arquivo no Storage + linha nesta tabela).
---
--- Como aplicar: Supabase Dashboard > SQL Editor > New query > colar tudo > Run.
--- (Ou `supabase db push` se usar a CLI.) Pode rodar mais de uma vez: é idempotente.
 
--- ---------------------------------------------------------------------------
--- 1. PERFIS — um por usuário do Supabase Auth (login/senha ficam em auth.users,
---    gerenciados pelo Supabase; aqui só o que o app mostra: nome e @usuario).
--- ---------------------------------------------------------------------------
 create table if not exists public.perfis (
   id          uuid primary key references auth.users (id) on delete cascade,
   nome        text not null check (char_length(nome) between 1 and 60),

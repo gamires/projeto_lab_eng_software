@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-# Sobe backend (Spring Boot :8080) e frontend (Vite :5173) juntos.
-# Ctrl+C derruba os dois.
+
 set -euo pipefail
 cd "$(dirname "$0")"
 
